@@ -14,10 +14,10 @@ var map = function(value, istart, istop, ostart, ostop) {
 	return ostart + (ostop - ostart) * ((value - istart) / (istop - istart));
 };
 
-window.onload = function(){
+window.onload = function() {
 	s = skrollr.init({
 		forceHeight: true,
-		render: function(e){
+		render: function(e) {
 			progress = e.curTop / e.maxTop;
 			document.getElementById('progressValue').innerHTML = progress;
 
@@ -25,7 +25,7 @@ window.onload = function(){
 	});
 
 	document.addEventListener('touchstart', function(e) {
-		if(!isPlaying){
+		if (!isPlaying) {
 			dummyOsc.start(0);
 			isPlaying = true;
 		}
