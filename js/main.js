@@ -1,11 +1,3 @@
-window.AudioContext = (window.AudioContext || window.webkitAudioContext || window.mozAudioContext || window.msAudioContext);
-var context = new AudioContext();
-var buffer = null;
-var dummyOsc = context.createOscillator();
-var master = context.createGain();
-master.gain.value = 0.5;
-master.connect(context.destination);
-
 var progress = 0;
 var grainInterval = 40; //in ms
 var isPlaying = false;
@@ -21,7 +13,8 @@ window.onload = function() {
 			progress = e.curTop / e.maxTop;
 			document.getElementById('progressValue').innerHTML = progress;
 
-		}
+		},
+		keyframe: keyframeHandler
 	});
 
 	document.addEventListener('touchstart', function(e) {
