@@ -31,22 +31,44 @@ html, body {
 }
 .section {
 	/*position: relative;*/
-	width: 100%; 
-	height: 4000%; /* the actual size of each section */
-	max-height: 4000vh; /* the actual size of each section */
+	width: 100vw; 
+	height: 10000%; /* the actual size of each section */
+	max-height: 10000vh; /* the actual size of each section */
 	margin: 0;
 	padding: 0;
+	text-align: center;
 }
 .circle {
 	position: fixed;
-	top: 50%;
-	left: 48%;
+	top: 65vh;
+	left: 46.5vw;
 	border-radius: 50%;
-	width: 8px;
-	height: 8px;
-	background-color: pink;
+	width: 1.5vw;
+	height: 1.5vw;
+	background-color: white;
 	z-index: 9999;
 	opacity: 0;
+}
+#table {
+	position: fixed;
+	display: block;
+	/*background-color:red;*/
+	left: 34vw;
+	top: 62vh;
+	width: 32vw;
+	height: 10vh;
+	z-index: 9999;
+	padding: 0;
+	margin: 0;
+	opacity: 0;
+}
+.square {
+	/*position: absolute;*/
+	display: inline-block;
+	width: 7vw;
+	height: 7vw;
+	background-color: white;
+	margin-right: 3vw;
 }
 
 
