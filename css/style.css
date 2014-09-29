@@ -32,8 +32,8 @@ html, body {
 .section {
 	/*position: relative;*/
 	width: 100%; 
-	height: 1000%; /* the actual size of each section */
-	max-height: 1000vh; /* the actual size of each section */
+	height: 4000%; /* the actual size of each section */
+	max-height: 4000vh; /* the actual size of each section */
 	margin: 0;
 	padding: 0;
 }

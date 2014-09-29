@@ -16,7 +16,7 @@ function keyframeHandler(element, name, direction) {
 		master.gain.value = 0.0;
 	}
 
-
+	console.log(element.attributes[2].value);
 	//circle
 	if (element.id === 'circle' && name === 'data-420pTop') {
 		var osc = context.createOscillator();
