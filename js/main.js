@@ -9,11 +9,12 @@ var map = function(value, istart, istop, ostart, ostop) {
 window.onload = function() {
 	
 	s = skrollr.init({
-		smoothScrolling: true,
+		// smoothScrolling: true,
+		// mobileDeceleration:0.003,
 		forceHeight: true,
 		render: function(e) {
 			progress = e.curTop / e.maxTop;
-			// document.getElementById('progressValue').innerHTML = progress;
+			document.getElementById('progressValue').innerHTML = progress;
 
 		},
 		keyframe: keyframeHandler
