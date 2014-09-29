@@ -1,8 +1,9 @@
 html, body {
-	width: 100%;
+	width: 100vw%;
 	height: 100%;
 	margin: 0;
 	padding: 0;
+	overflow-x: hidden;
 }
 #skrollr-body {
 	height: 100%;
@@ -55,7 +56,7 @@ html, body {
 	/*background-color:red;*/
 	left: 34vw;
 	top: 62vh;
-	width: 32vw;
+	/*width: 32vw;*/
 	height: 10vh;
 	z-index: 9999;
 	padding: 0;

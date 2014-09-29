@@ -31,12 +31,12 @@ function keyframeHandler(element, name, direction) {
 
 		element.style.opacity = 1;
 		element.style.transition = 'all 0.8s ease 0s';
-		element.style.transform = "translate(-140px,-140px)";
-		element.style.webkitTransform = "translate(140px,-140px)";
+		element.style.transform = "translate(80px,-140px)";
+		element.style.webkitTransform = "translate(80px,-140px)";
 		setTimeout(function(){
 			element.style.transition = 'all 0.8s ease 0s';
-			element.style.transform = "translate(-140px,-140px)";
-			element.style.webkitTransform = "translate(-140px,-140px)";
+			element.style.transform = "translate(-80px,-140px)";
+			element.style.webkitTransform = "translate(-80px,-140px)";
 			setTimeout(function(){
 				element.style.transition = 'all 0.8s ease 0s';
 				element.style.transform = "translate(0,0)";

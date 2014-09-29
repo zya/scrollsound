@@ -9,7 +9,7 @@ var map = function(value, istart, istop, ostart, ostop) {
 window.onload = function() {
 	
 	s = skrollr.init({
-		// smoothScrolling: true,
+		smoothScrolling: true,
 		// mobileDeceleration:0.001,
 		forceHeight: true,
 		render: function(e) {
