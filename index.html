@@ -7,6 +7,7 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<!-- JS Libs-->
 		<script src="js/lib/skrollr.min.js"></script>
+		<script src="js/lib/loop.js"></script>
 		<!-- JS -->
 		<script src="js/audio.js"></script>
 		<script src="js/soundloader.js"></script>
@@ -24,7 +25,7 @@
 					data-anchor-target="#section1"
 					data--500p-top
 					data--2000p-top
-					data--2800p-top
+					data--3000p-top
 					data--5200p-top
 					data-emit-events></div>
 		<!-- table testing -->
@@ -43,15 +44,15 @@
 		<!-- skrollr wrapper -->
 		<div id="skrollr-body">
 			<!-- SECTIONS -->
-			<!-- SECTION 1 -->
+			<!-- DUMMY SECTION 1 -->
 			<div class='section' id='section1'
-				data-top="background-color:rgb(0,0,255);" 
-				data-top-bottom="background-color:rgb(255,0,0);">
+				data-top="opacity: 0.1;"
+				data-3000p="opacity: 1.0"
+				data-top-bottom>
 			</div>
-
-			
+			<div class='section'></div>
 			<!-- SECTION 2 -->
-			<div class='section' id="test" data-top="background-color:rgb(0,0,255);" data-top-bottom="background-color:rgb(255,0,0);" data-emit-events> Start </div>
+			<div class='section' id="section2" data-top="background-color:rgb(0,0,255);" data-top-bottom="background-color:rgb(255,0,0);" data-emit-events> Start </div>
 	<!-- 		<div class='section' data-top="background-color:rgb(0,0,255);" data-top-bottom="background-color:rgb(255,0,0);"> Start </div>
 			<div class='section' data-top="background-color:rgb(0,0,255);" data-top-bottom="background-color:rgb(255,0,0);"> Start </div> -->
 

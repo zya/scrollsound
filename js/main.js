@@ -11,7 +11,7 @@ window.onload = function() {
 	s = skrollr.init({
 		smoothScrolling: true,
 		// mobileDeceleration:0.001,
-		forceHeight: true,
+		// forceHeight: true,
 		render: function(e) {
 			progress = e.curTop / e.maxTop;
 			// document.getElementById('progressValue').innerHTML = progress;
@@ -34,6 +34,8 @@ window.onload = function() {
 			if (offset > buffer.duration) {
 				offset = buffer.duration;
 			}
+			// console.log(document.getElementById('section1').style.opacity);
+			// master.gain.value = document.getElementById('section1').style.opacity;
 			grain(context, buffer, master, 0.3, 0.5, offset);
 		}, grainInterval);
 	});

@@ -38,6 +38,8 @@ html, body {
 	margin: 0;
 	padding: 0;
 	text-align: center;
+	background-color: red;
+	/*display: none;*/
 }
 .circle {
 	position: fixed;
@@ -56,7 +58,7 @@ html, body {
 	/*background-color:red;*/
 	left: 34vw;
 	top: 62vh;
-	/*width: 32vw;*/
+	width: 32vw;
 	height: 10vh;
 	z-index: 9999;
 	padding: 0;
@@ -70,6 +72,15 @@ html, body {
 	height: 7vw;
 	background-color: white;
 	margin-right: 3vw;
+}
+
+#texttext {
+	position: absolute;
+	top: 60%;
+}
+
+#section1 {
+	display: none;
 }
 
 
