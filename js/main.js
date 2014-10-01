@@ -27,7 +27,7 @@ window.onload = function() {
 		}
 	}, true);
 
-	loadSound(context, 'assets/guitar.mp3', function(e) {
+	loadSound(context, 'assets/audio/1.wav', function(e) {
 		buffer = e;
 		setInterval(function() {
 			var offset = map(progress, 0.0, 1.0, 0.0, buffer.duration);

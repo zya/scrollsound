@@ -41,6 +41,11 @@ html, body {
 	background-color: red;
 	/*display: none;*/
 }
+
+#back {
+	background-image: url('../assets/images/1.png');
+	background-attachment: fixed;
+}
 .circle {
 	position: fixed;
 	top: 65vh;
