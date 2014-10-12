@@ -10,7 +10,7 @@ html, body {
 	max-height: 100%;
 	margin: 0;
 	padding: 0;
-	background-color: grey;
+	background-color: gray;
 }
 #progressValue {
 	position: fixed;
@@ -31,21 +31,16 @@ html, body {
 	height: 4px;
 }
 .section {
-	/*position: relative;*/
+	position: relative;
 	width: 100vw; 
 	height: 10000%; /* the actual size of each section */
 	max-height: 10000vh; /* the actual size of each section */
 	margin: 0;
 	padding: 0;
 	text-align: center;
-	background-color: red;
-	/*display: none;*/
+
 }
 
-#back {
-	background-image: url('../assets/images/1.png');
-	background-attachment: fixed;
-}
 .circle {
 	position: fixed;
 	top: 65vh;
@@ -84,9 +79,6 @@ html, body {
 	top: 60%;
 }
 
-#section1 {
-	display: none;
-}
 
 
 

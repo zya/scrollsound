@@ -11,6 +11,7 @@ var loopIsPlaying = false;
 
 
 function loopFunction(next){
+	console.log('test');
 	var osc = context.createOscillator();
 	osc.connect(master);
 	osc.start(next);
@@ -24,6 +25,7 @@ function keyframeHandler(element, name, direction) {
 	if (element.id === 'section2' && name === "dataTop" && direction === "down") {
 
 		if(!loopIsPlaying){
+			loop.now = context.currentTime;
 			loop.start();
 			loopIsPlaying = true;
 		}
@@ -33,6 +35,7 @@ function keyframeHandler(element, name, direction) {
 
 		loop.stop();
 		loopIsPlaying = false;
+		console.log(loop.now);
 	}
 
 

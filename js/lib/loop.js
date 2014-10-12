@@ -2,6 +2,7 @@
 
 function Loop(callback, repetition, interval, context) {
     this.context = context;
+    this.now = 0;
 
     Object.defineProperties(this, {
         // index for iteration
@@ -25,11 +26,11 @@ function Loop(callback, repetition, interval, context) {
         },
         // schedule check up interval in milliseconds (setTimeout)
         _checkup: {
-            value: 1000 / 30
+            value: 1000 / 20
         },
         // look-ahead window in seconds for each checkup
         _ahead: {
-            value: 1.0
+            value: 2.0
         },
         // looping mode: finite or infinite
         _infinite: {
@@ -59,10 +60,9 @@ Loop.prototype = Object.create(null, {
 
     _loop: {
         value: function () {
-            
-            var n = this.context.currentTime;
+            this.now = context.currentTime;
             // if next trial is in range of now - ahead
-            if (this._next < n + this._ahead) {
+            if (this._next < this.now + this._ahead) {
                 // call content generator: with start time and loop index
                 this._callback.call(this, this._next, this._index);
                 // set next event
