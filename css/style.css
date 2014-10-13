@@ -79,6 +79,24 @@ html, body {
 	top: 60%;
 }
 
+#description {
+	position: fixed;
+	top:62vh;
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+	z-index: 50;
+	width: 100vw;
+	font-size: 17px;
+	color: white;
+}
+
+h1{
+	font-weight: 400;
+	font-size: 22px;
+	margin: 0;
+}
+
 
 
 

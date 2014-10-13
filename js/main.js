@@ -10,12 +10,10 @@ window.onload = function() {
 	
 	s = skrollr.init({
 		smoothScrolling: true,
-		// mobileDeceleration:0.001,
+		mobileDeceleration:0.003,
 		// forceHeight: true,
 		render: function(e) {
 			progress = e.curTop / e.maxTop;
-			// document.getElementById('progressValue').innerHTML = progress;
-
 		},
 		keyframe: keyframeHandler
 	});
