@@ -3,39 +3,37 @@ var context = new AudioContext();
 var buffer = null;
 var dummyOsc = context.createOscillator();
 var master = context.createGain();
-master.gain.value = 1;
+master.gain.value = 0.1;
 master.connect(context.destination);
-var loop = new Loop(loopFunction,0,loopSpeed,context);
-var loopSpeed = 0.4;
+var loop = new Loop(loopFunction,0,1,context);
 var loopIsPlaying = false;
-
+loop.start();
 
 function loopFunction(next){
-	console.log('test');
-	var osc = context.createOscillator();
-	osc.connect(master);
-	osc.start(next);
-	osc.stop(next + 0.2);
+	console.log('t');
+	if(loopIsPlaying){
+		var now = context.currentTime;
+		var osc = context.createOscillator();
+		osc.connect(master);
+		osc.start(now);
+		osc.stop(now + 0.1);
+		var osc2 = context.createOscillator();
+		osc2.frequency.value = 220;
+		osc2.connect(master);
+		osc2.start(now + 0.1);
+		osc2.stop(now + 0.2);
+	}
 }
 // KEYFRAME HANDLER
 function keyframeHandler(element, name, direction) {
 
-	console.log(name);
-
 	if (element.id === 'section2' && name === "dataTop" && direction === "down") {
 
-		if(!loopIsPlaying){
-			loop.now = context.currentTime;
-			loop.start();
-			loopIsPlaying = true;
-		}
-		
+		loopIsPlaying = true;
 
 	} else if (element.id === 'section2' && name === "dataTop" && direction === "up") {
 
-		loop.stop();
 		loopIsPlaying = false;
-		console.log(loop.now);
 	}
 
 

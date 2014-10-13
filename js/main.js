@@ -27,14 +27,13 @@ window.onload = function() {
 		}
 	}, true);
 
-	loadSound(context, 'assets/audio/1.wav', function(e) {
+	loadSound(context, 'assets/audio/1.mp3', function(e) {
 		buffer = e;
 		setInterval(function() {
 			var offset = map(progress, 0.0, 1.0, 0.0, buffer.duration);
 			if (offset > buffer.duration) {
 				offset = buffer.duration;
 			}
-			// console.log(document.getElementById('section1').style.opacity);
 			// master.gain.value = document.getElementById('section1').style.opacity;
 			grain(context, buffer, master, 0.3, 0.5, offset);
 		}, grainInterval);

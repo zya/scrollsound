@@ -30,7 +30,7 @@ function Loop(callback, repetition, interval, context) {
         },
         // look-ahead window in seconds for each checkup
         _ahead: {
-            value: 2.0
+            value: 0.5
         },
         // looping mode: finite or infinite
         _infinite: {
