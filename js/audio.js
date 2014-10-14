@@ -3,11 +3,11 @@ var context = new AudioContext();
 var buffer = null;
 var dummyOsc = context.createOscillator();
 var master = context.createGain();
-master.gain.value = 0.1;
+master.gain.value = 1;
 master.connect(context.destination);
-var loop = new Loop(loopFunction,0,1,context);
+// var loop = new Loop(loopFunction,0,1,context);
 var loopIsPlaying = false;
-loop.start();
+// loop.start();
 
 function loopFunction(next){
 	console.log('t');
@@ -36,6 +36,17 @@ function keyframeHandler(element, name, direction) {
 		loopIsPlaying = false;
 	}
 
+	if(element.id === 'firstEvent' && name === "data-1700pTop"){
+		element.style.transition = "all 0.9s ease-in 0s";
+		element.style.opacity = 1;
+		setTimeout(function(){
+			element.style.transition = "all 1.2s ease-out 0.5s";
+			element.style.opacity = 0;
+		},1800);
+	}else if(element.id === 'firstEvent' && name === "data-1200pTop"){
+		element.style.transition = "all 0.5s ease-out 0s";
+		element.style.opacity = 0;
+	}
 
 	// CIRCLE EVENTS
 	if (element.id === 'circle' && name === 'data-2000pTop') {

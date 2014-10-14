@@ -1,5 +1,5 @@
 var progress = 0;
-var grainInterval = 40; //in ms
+var grainInterval = 200; //in ms
 var isPlaying = false;
 
 var map = function(value, istart, istop, ostart, ostop) {
@@ -10,7 +10,7 @@ window.onload = function() {
 	
 	s = skrollr.init({
 		smoothScrolling: true,
-		mobileDeceleration:0.003,
+		mobileDeceleration:0.0009,
 		// forceHeight: true,
 		render: function(e) {
 			progress = e.curTop / e.maxTop;

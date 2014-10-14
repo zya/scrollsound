@@ -10,7 +10,7 @@ html, body {
 	max-height: 100%;
 	margin: 0;
 	padding: 0;
-	background-color: gray;
+	/*background-color: gray;*/
 }
 #progressValue {
 	position: fixed;
@@ -23,7 +23,7 @@ html, body {
 }
 #progressBar {
 	position: fixed;
-	background-color: green;
+	background-color: red;
 	top: 0px;
 	margin: 0;
 	padding: 0;
@@ -38,18 +38,11 @@ html, body {
 	margin: 0;
 	padding: 0;
 	text-align: center;
+	background-color: gray;
 
 }
 
-.circle {
-	position: fixed;
-	top: 65vh;
-	left: 46.5vw;
-	border-radius: 50%;
-	width: 1.5vw;
-	height: 1.5vw;
-	background-color: white;
-	z-index: 9999;
+#firstEvent {
 	opacity: 0;
 }
 #table {
@@ -73,13 +66,7 @@ html, body {
 	background-color: white;
 	margin-right: 3vw;
 }
-
-#texttext {
-	position: absolute;
-	top: 60%;
-}
-
-#description {
+.text{
 	position: fixed;
 	top:62vh;
 	text-align: center;
@@ -95,6 +82,39 @@ h1{
 	font-weight: 400;
 	font-size: 22px;
 	margin: 0;
+}
+
+#back {
+	background-image: url("/assets/images/back.png");
+	position: fixed;
+	margin:0;
+	padding: 0;
+	width: 100vw;
+	height: 15000%;
+	background-size: no-repeat 15000%;
+	z-index: 2;
+}
+
+#fr1{
+	background-image: url("/assets/images/fr1.png");
+	position: fixed;
+	top: 95vh;
+	width: 100vw;
+	height: 20000%;
+	background-size: 100%;
+	z-index: 4;
+	opacity: 0.90;
+}
+
+#fr2{
+	background-image: url("/assets/images/fr2.png");
+	position: fixed;
+	top: 90vh;
+	width: 100vw;
+	height: 20000%;
+	background-size: 100%;
+	z-index: 8;
+	opacity: 0.95;
 }
 
 
