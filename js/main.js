@@ -1,5 +1,5 @@
 var progress = 0;
-var grainInterval = 200; //in ms
+var grainInterval = 150; //in ms
 var isPlaying = false;
 
 var map = function(value, istart, istop, ostart, ostop) {
@@ -33,8 +33,18 @@ window.onload = function() {
 				offset = buffer.duration;
 			}
 			// master.gain.value = document.getElementById('section1').style.opacity;
-			grain(context, buffer, master, 0.3, 0.5, offset);
+			grain(context, buffer, grainGain, 0.3, 0.5, offset);
 		}, grainInterval);
 	});
+
+	if(ios || android){
+		
+	}else{
+		
+		loadSound(context, 'assets/audio/ir.mp3', function(e){
+			reverb.buffer = e;
+			console.log("reverb ir loaded");
+		});
+	}
 
 };

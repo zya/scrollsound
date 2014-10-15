@@ -31,10 +31,10 @@ html, body {
 	height: 4px;
 }
 .section {
-	position: relative;
+	position: fixed;
 	width: 100vw; 
-	height: 10000%; /* the actual size of each section */
-	max-height: 10000vh; /* the actual size of each section */
+	height: 20000%; /* the actual size of each section */
+	max-height: 20000vh; /* the actual size of each section */
 	margin: 0;
 	padding: 0;
 	text-align: center;
@@ -43,6 +43,16 @@ html, body {
 }
 
 #firstEvent {
+	opacity: 0;
+}
+
+#secondEvent {
+	opacity: 0;
+}
+#thirdEvent {
+	opacity: 0;
+}
+#forthEvent {
 	opacity: 0;
 }
 #table {
@@ -91,30 +101,29 @@ h1{
 	padding: 0;
 	width: 100vw;
 	height: 15000%;
-	background-size: no-repeat 15000%;
 	z-index: 2;
 }
 
 #fr1{
-	background-image: url("/assets/images/fr1.png");
+	background-image: url("/assets/images/fr3.png");
 	position: fixed;
 	top: 95vh;
-	width: 100vw;
+	left:25vw;
+	width: 50vw;
 	height: 20000%;
-	background-size: 100%;
 	z-index: 4;
-	opacity: 0.90;
+	opacity: 0.3;
 }
 
 #fr2{
 	background-image: url("/assets/images/fr2.png");
 	position: fixed;
 	top: 90vh;
-	width: 100vw;
+	width: 50vw;
+	left:25vw;
 	height: 20000%;
-	background-size: 100%;
 	z-index: 8;
-	opacity: 0.95;
+	opacity: 0.40;
 }
 
 
