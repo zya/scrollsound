@@ -25,7 +25,7 @@ window.onload = function() {
 		}
 	}, true);
 
-	loadSound(context, 'assets/audio/1.mp3', function(e) {
+	loadSound(context, 'assets/audio/1.wav', function(e) {
 		buffer = e;
 		setInterval(function() {
 			var offset = map(progress, 0.0, 1.0, 0.0, buffer.duration);
@@ -40,7 +40,7 @@ window.onload = function() {
 	if(ios || android){
 		
 	}else{
-		
+
 		loadSound(context, 'assets/audio/ir.mp3', function(e){
 			reverb.buffer = e;
 			console.log("reverb ir loaded");

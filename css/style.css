@@ -12,15 +12,6 @@ html, body {
 	padding: 0;
 	/*background-color: gray;*/
 }
-#progressValue {
-	position: fixed;
-	top: 20px;
-	left: 20px;
-	background-color: rgba(0, 0, 0, 0.5);
-	color: #fff;
-	padding: 20px;
-	z-index: 9999;
-}
 #progressBar {
 	position: fixed;
 	background-color: red;
@@ -39,43 +30,8 @@ html, body {
 	padding: 0;
 	text-align: center;
 	background-color: gray;
-
 }
 
-#firstEvent {
-	opacity: 0;
-}
-
-#secondEvent {
-	opacity: 0;
-}
-#thirdEvent {
-	opacity: 0;
-}
-#forthEvent {
-	opacity: 0;
-}
-#table {
-	position: fixed;
-	display: block;
-	/*background-color:red;*/
-	left: 34vw;
-	top: 62vh;
-	width: 32vw;
-	height: 10vh;
-	z-index: 9999;
-	padding: 0;
-	margin: 0;
-	opacity: 0;
-}
-.square {
-	/*position: absolute;*/
-	display: inline-block;
-	width: 7vw;
-	height: 7vw;
-	background-color: white;
-	margin-right: 3vw;
-}
 .text{
 	position: fixed;
 	top:62vh;
@@ -86,12 +42,16 @@ html, body {
 	width: 100vw;
 	font-size: 17px;
 	color: white;
+	opacity: 0;
 }
 
 h1{
 	font-weight: 400;
 	font-size: 22px;
 	margin: 0;
+}
+#description{
+	opacity: 1;
 }
 
 #back {
