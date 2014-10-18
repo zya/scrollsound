@@ -1,5 +1,5 @@
 var progress = 0;
-var grainInterval = 150; //in ms
+var grainInterval = 200; //in ms
 var isPlaying = false;
 
 var map = function(value, istart, istop, ostart, ostop) {
