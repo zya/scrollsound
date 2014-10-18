@@ -1,23 +1,23 @@
-var isMobile = {
-	Android: function() {
-		return navigator.userAgent.match(/Android/i) ? true : false;
-	},
-	BlackBerry: function() {
-		return navigator.userAgent.match(/BlackBerry/i) ? true : false;
-	},
-	iOS: function() {
-		return navigator.userAgent.match(/iPhone|iPad|iPod/i) ? true : false;
-	},
-	Windows: function() {
-		return navigator.userAgent.match(/IEMobile/i) ? true : false;
-	},
-	any: function() {
-		return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());
-	}
-};
-var ios = isMobile.iOS();
-var android = isMobile.Android();
-console.log(ios, android);
+// var isMobile = {
+// 	Android: function() {
+// 		return navigator.userAgent.match(/Android/i) ? true : false;
+// 	},
+// 	BlackBerry: function() {
+// 		return navigator.userAgent.match(/BlackBerry/i) ? true : false;
+// 	},
+// 	iOS: function() {
+// 		return navigator.userAgent.match(/iPhone|iPad|iPod/i) ? true : false;
+// 	},
+// 	Windows: function() {
+// 		return navigator.userAgent.match(/IEMobile/i) ? true : false;
+// 	},
+// 	any: function() {
+// 		return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());
+// 	}
+// };
+// var ios = isMobile.iOS();
+// var android = isMobile.Android();
+// console.log(ios, android);
 window.AudioContext = (window.AudioContext || window.webkitAudioContext || window.mozAudioContext || window.msAudioContext);
 var context = new AudioContext();
 var buffer = null;
@@ -25,6 +25,9 @@ var dummyOsc = context.createOscillator();
 var master = context.createGain();
 var reverbGain = context.createGain();
 var grainGain = context.createGain();
+var panner = context.createPanner();
+panner.panningModel = "equalpower";
+panner.setPosition(0,0,0);
 grainGain.gain.value = 0.6;
 var kickGain = context.createGain();
 kickGain.gain.value = 0.3;
@@ -33,24 +36,19 @@ leadGain.gain.value = 0.15;
 var arpGain = context.createGain();
 arpGain.gain.value = 0.2;
 var reverb;
-if (ios || android) {
-	reverbGain.gain.value = 0;
-} else {
-	console.log('test');
-	reverb = context.createConvolver();
-	reverbGain.gain.value = 2;
-	reverb.connect(reverbGain);
-	grainGain.connect(reverb);
-	leadGain.connect(reverb);
-	arpGain.connect(reverb);
-	leadGain.gain.value = 0.1;
-}
+reverb = context.createConvolver();
+reverb.normalize = true;
+reverb.connect(reverbGain);
+leadGain.connect(reverb);
+arpGain.connect(panner);
+arpGain.connect(reverb);
 reverbGain.connect(master);
 grainGain.connect(master);
 leadGain.connect(master);
-arpGain.connect(master);
+panner.connect(master);
 kickGain.connect(master);
-
+reverbGain.gain.value = 0.6;
+panner.setPosition(0,0,0);
 master.gain.value = 1;
 master.connect(context.destination);
 var oneBar = 2;
@@ -58,8 +56,6 @@ var loop = new Loop(loopFunction, 0, oneBar, context);
 var loopIsPlaying = false;
 var arpIsPlaying = false;
 loop.start();
-
-
 
 // THE LEAD SOUND
 function lead(now, frequency, a, r) {
@@ -80,12 +76,12 @@ function lead(now, frequency, a, r) {
 	gain.gain.linearRampToValueAtTime(1, now + a);
 	gain.gain.linearRampToValueAtTime(0, now + a + r);
 	osc.start(now);
-	osc.stop(now + a + r + 0.1);
+	osc.stop(now + a + r + 0.5);
 	setTimeout(function(){
 		gain.disconnect();
 		feedback.disconnect();
 		delay.disconnect();
-	}, (a + r + oneBar) * 1000);
+	}, (a + r + 5) * 1000);
 }
 
 function arpNote(now, frequency, a, r) {
@@ -98,10 +94,10 @@ function arpNote(now, frequency, a, r) {
 	gain.gain.linearRampToValueAtTime(1, now + a);
 	gain.gain.linearRampToValueAtTime(0, now + a + r);
 	osc.start(now);
-	osc.stop(now + a + r + 0.1);
+	osc.stop(now + a + r + 0.2);
 	setTimeout(function(){
 		gain.disconnect();
-	}, (a + r + oneBar) * 1000);
+	}, (a + r + oneBar + 0.5) * 1000);
 }
 
 function kick(now, frequency, a, r, pitchEnvTime){
@@ -116,11 +112,11 @@ function kick(now, frequency, a, r, pitchEnvTime){
 	osc.frequency.setValueAtTime(osc.frequency.value, now);
 	osc.frequency.linearRampToValueAtTime(frequency, now + pitchEnvTime);
 	osc.start(now);
-	osc.stop(now + a + r + 0.1);
+	osc.stop(now + a + r + 0.2);
 
 	setTimeout(function(){
 		gain.disconnect();
-	}, (a + r + oneBar) * 1000);
+	}, (a + r + oneBar + 0.5) * 1000);
 }
 
 
@@ -155,6 +151,10 @@ var fadeOut = function(element, outTime) {
 	element.style.opacity = 0;
 };
 
+var fadeIn = function(element, inTime) {
+	element.style.transition = "all " + inTime + "s ease-out 0.5s";
+	element.style.opacity = 1;
+};
 // KEYFRAME HANDLER
 function keyframeHandler(element, name, direction) {
 	var now = context.currentTime;
@@ -213,22 +213,24 @@ function keyframeHandler(element, name, direction) {
 	// RHYTM EVENT
 	if(element.id === "section1"){
 		var indic = document.getElementById("rhytmIndicator");
-		if(name === "data-6200pTop" && direction === "down") {
+		if(name === "data-7000pTop" && direction === "down") {
 			indic.innerHTML = "<h1>Rhytm Start</h1>";
 			fadeInAndOut(indic, 1, 3000, 1.2);
 			loopIsPlaying = true;
-		}else if (name === "data-6200pTop" && direction === "up"){
+		}else if (name === "data-7000pTop" && direction === "up"){
 			indic.innerHTML = "<h1>Rhytm Stop</h1>";
 			fadeInAndOut(indic, 1, 1000, 0.9);
 			loopIsPlaying = false;
-		} else if (name === "data-7500pTop" && direction === "down") {
+		} else if (name === "data-9000pTop" && direction === "down") {
 			indic.innerHTML = "<h1>Arp Start</h1>";
 			arpIsPlaying = true;
+			loopIsPlaying = true;
 			fadeInAndOut(indic, 1, 1000, 0.9);
-		} else if (name === "data-11000pTop" && direction === "down") {
-			indic.innerHTML = "<h1>Something</h1>";
+		} else if (name === "data-9000pTop" && direction === "up") {
+			indic.innerHTML = "<h1>Arp Stop</h1>";
+			arpIsPlaying = false;
 			fadeInAndOut(indic, 1, 1000, 0.9);
-		}
+		} 
 	}
 
 }
