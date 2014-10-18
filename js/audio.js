@@ -1,23 +1,3 @@
-// var isMobile = {
-// 	Android: function() {
-// 		return navigator.userAgent.match(/Android/i) ? true : false;
-// 	},
-// 	BlackBerry: function() {
-// 		return navigator.userAgent.match(/BlackBerry/i) ? true : false;
-// 	},
-// 	iOS: function() {
-// 		return navigator.userAgent.match(/iPhone|iPad|iPod/i) ? true : false;
-// 	},
-// 	Windows: function() {
-// 		return navigator.userAgent.match(/IEMobile/i) ? true : false;
-// 	},
-// 	any: function() {
-// 		return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());
-// 	}
-// };
-// var ios = isMobile.iOS();
-// var android = isMobile.Android();
-// console.log(ios, android);
 window.AudioContext = (window.AudioContext || window.webkitAudioContext || window.mozAudioContext || window.msAudioContext);
 var context = new AudioContext();
 var buffer = null;
@@ -27,7 +7,7 @@ var reverbGain = context.createGain();
 var grainGain = context.createGain();
 var panner = context.createPanner();
 panner.panningModel = "equalpower";
-panner.setPosition(0,0,0);
+panner.setPosition(0, 0, 0);
 grainGain.gain.value = 0.6;
 var kickGain = context.createGain();
 kickGain.gain.value = 0.3;
@@ -37,7 +17,6 @@ var arpGain = context.createGain();
 arpGain.gain.value = 0.2;
 var reverb;
 reverb = context.createConvolver();
-reverb.normalize = true;
 reverb.connect(reverbGain);
 leadGain.connect(reverb);
 arpGain.connect(panner);
@@ -47,14 +26,18 @@ grainGain.connect(master);
 leadGain.connect(master);
 panner.connect(master);
 kickGain.connect(master);
-reverbGain.gain.value = 0.6;
-panner.setPosition(0,0,0);
+reverbGain.gain.value = 0.9;
+panner.setPosition(0, 0, 0);
 master.gain.value = 1;
 master.connect(context.destination);
 var oneBar = 2;
 var loop = new Loop(loopFunction, 0, oneBar, context);
+loop._interval = 0.5;
+console.log(loop);
 var loopIsPlaying = false;
-var arpIsPlaying = false;
+var isFirstPattern = false;
+var isSecondPattern = false;
+var isFinalPattern = false;
 loop.start();
 
 // THE LEAD SOUND
@@ -77,7 +60,7 @@ function lead(now, frequency, a, r) {
 	gain.gain.linearRampToValueAtTime(0, now + a + r);
 	osc.start(now);
 	osc.stop(now + a + r + 0.5);
-	setTimeout(function(){
+	setTimeout(function() {
 		gain.disconnect();
 		feedback.disconnect();
 		delay.disconnect();
@@ -95,12 +78,12 @@ function arpNote(now, frequency, a, r) {
 	gain.gain.linearRampToValueAtTime(0, now + a + r);
 	osc.start(now);
 	osc.stop(now + a + r + 0.2);
-	setTimeout(function(){
+	setTimeout(function() {
 		gain.disconnect();
 	}, (a + r + oneBar + 0.5) * 1000);
 }
 
-function kick(now, frequency, a, r, pitchEnvTime){
+function kick(now, frequency, a, r, pitchEnvTime) {
 	var osc = context.createOscillator();
 	osc.frequency.value = 400;
 	var gain = context.createGain();
@@ -114,26 +97,37 @@ function kick(now, frequency, a, r, pitchEnvTime){
 	osc.start(now);
 	osc.stop(now + a + r + 0.2);
 
-	setTimeout(function(){
+	setTimeout(function() {
 		gain.disconnect();
 	}, (a + r + oneBar + 0.5) * 1000);
 }
 
 
-
+var notes = [329.63, 392, 523.252];
 //LOOP FUNCTION
 function loopFunction(next) {
 	if (loopIsPlaying) {
-		kick(next, 50, 0.005, 0.5, 0.01);
-		kick(next + (oneBar/3), 320 / 4, 0.005, 0.5, 0.01);
-		kick(next + (oneBar/1.3), 329 / 3, 0.005, 0.5, 0.01);
-		if (arpIsPlaying) {
-			arpNote(next + (oneBar/6),329.63, 0.01, 0.15);
-			arpNote(next + (oneBar/1.3), 523.252, 0.01, 0.3);
-			arpNote(next + (oneBar/3), 392 * 2, 0.01, 0.5);
+		if (isFirstPattern) {
+			kick(next, 50, 0.005, 0.5, 0.01);
+			kick(next + (oneBar / 2), 50, 0.005, 0.5, 0.01);
+			kick(next + (oneBar / 1.5), 50, 0.005, 0.5, 0.01);
+			arpNote(next + (oneBar / 6), notes[0] / 2, 0.01, 0.15);
+			arpNote(next + (oneBar / 1.3), notes[2] * 2, 0.01, 0.3);
+			arpNote(next + (oneBar / 3), notes[1], 0.01, 0.5);
+		} else if (isSecondPattern) {
+			kick(next, 50, 0.005, 0.5, 0.01);
+			kick(next + (oneBar / 2), 50, 0.005, 0.5, 0.01);
+			kick(next + (oneBar / 1.5), 50, 0.005, 0.5, 0.01);
+			arpNote(next + (oneBar / 6), notes[0], 0.01, 0.15);
+			arpNote(next + (oneBar / 1.3), notes[2], 0.01, 0.3);
+			arpNote(next + (oneBar / 3), notes[1] * 2, 0.01, 0.5);
+		} else if (isFinalPattern) {
+			var note = notes[Math.round(Math.random() * 3)];
+			lead(next, note / 2, 0.1, 0.9);
+			kick(next, 50, 0.005, 1, 0.01);
 		}
-	}
 
+	}
 }
 
 // HELPER FUNCTIONS
@@ -157,11 +151,12 @@ var fadeIn = function(element, inTime) {
 };
 // KEYFRAME HANDLER
 function keyframeHandler(element, name, direction) {
+	console.log(name);
 	var now = context.currentTime;
 	//FIRST EVENT STUFF
 	if (element.id === "firstEvent") {
 		if (name === "data-1800pTop" && direction === "down") {
-			lead(now,329.63 * 4, 0.1, 1);
+			lead(now, 329.63 * 4, 0.1, 1);
 			fadeInAndOut(element, 0.5, 1800, 1.2);
 		} else if (name === "data-2000pTop" && direction === "up") {
 			lead(now, 329.63 * 4, 0.1, 1);
@@ -211,26 +206,73 @@ function keyframeHandler(element, name, direction) {
 	}
 
 	// RHYTM EVENT
-	if(element.id === "section1"){
+	if (element.id === "section1") {
 		var indic = document.getElementById("rhytmIndicator");
-		if(name === "data-7000pTop" && direction === "down") {
+		if (name === "data-7000pTop" && direction === "down") {
+			loop._interval = oneBar;
 			indic.innerHTML = "<h1>Rhytm Start</h1>";
 			fadeInAndOut(indic, 1, 3000, 1.2);
 			loopIsPlaying = true;
-		}else if (name === "data-7000pTop" && direction === "up"){
+			isFirstPattern = true;
+			isSecondPattern = false;
+			isFinalPattern = false;
+		} else if (name === "data-7000pTop" && direction === "up") {
+			loop._interval = oneBar / 2;
 			indic.innerHTML = "<h1>Rhytm Stop</h1>";
 			fadeInAndOut(indic, 1, 1000, 0.9);
 			loopIsPlaying = false;
+			isFirstPattern = true;
+			isSecondPattern = false;
+			isFinalPattern = false;
 		} else if (name === "data-9000pTop" && direction === "down") {
-			indic.innerHTML = "<h1>Arp Start</h1>";
-			arpIsPlaying = true;
+			loop._interval = oneBar;
+			indic.innerHTML = "<h1>Pattern Change</h1>";
+			isFirstPattern = false;
+			isSecondPattern = true;
+			isFinalPattern = false;
 			loopIsPlaying = true;
 			fadeInAndOut(indic, 1, 1000, 0.9);
 		} else if (name === "data-9000pTop" && direction === "up") {
-			indic.innerHTML = "<h1>Arp Stop</h1>";
-			arpIsPlaying = false;
+			loop._interval = oneBar;
+			indic.innerHTML = "<h1>Pattern Change Again</h1>";
+			isFirstPattern = true;
+			isSecondPattern = false;
+			isFinalPattern = false;
+			loopIsPlaying = true;
 			fadeInAndOut(indic, 1, 1000, 0.9);
-		} 
+		} else if (name === "data-11000pTop" && direction === "down") {
+			loop._interval = oneBar;
+			isFirstPattern = true;
+			isSecondPattern = false;
+			isFinalPattern = false;
+			loopIsPlaying = true;
+		} else if (name === "data-11000pTop" && direction === "up") {
+			loop._interval = oneBar;
+			isFirstPattern = false;
+			isSecondPattern = true;
+			isFinalPattern = false;
+			loopIsPlaying = true;
+		} else if (name === "data-15500pTop" && direction === "down") {
+			loop._interval = 4;
+			isFirstPattern = false;
+			isSecondPattern = false;
+			isFinalPattern = true;
+			loopIsPlaying = true;
+		} else if (name === "data-15500pTop" && direction === "up") {
+			loop._interval = oneBar;
+			isFirstPattern = true;
+			isSecondPattern = false;
+			isFinalPattern = false;
+			loopIsPlaying = true;
+		} else if (name === "data100pBottom" && direction === "down"){
+			console.log('test');
+			loopIsPlaying = false;
+			loop._interval = 0.5;
+		} else if (name === "data100pBottom" && direction === "up"){
+			loopIsPlaying = true;
+			loop._interval = 4;
+			loop._interval = oneBar;
+		}
 	}
 
 }

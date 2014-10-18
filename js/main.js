@@ -34,24 +34,19 @@ window.onload = function() {
 				offset = buffer.duration;
 			}
 			var st = window.getComputedStyle(pannerElement, null);
-			console.log();
 			var cv = st.getPropertyValue("-webkit-transform") || st.getPropertyValue("transform") ||
 			st.getPropertyValue("-moz-transform") || st.getPropertyValue("-ms-transform");
 			var panPost = parseInt(cv.split(',')[4], 10) / 150;
-			console.log(panPost);
 			panner.setPosition(panPost,0,0);
 			grain(context, buffer, grainGain, 0.3, 0.5, offset);
 		}, grainInterval);
 	});
 
-	// if(ios || android){
-		
-	// }else{
 
-		loadSound(context, 'assets/audio/ir.mp3', function(e){
-			reverb.buffer = e;
-			console.log("reverb ir loaded");
-		});
-	// }
+	loadSound(context, 'assets/audio/ir.mp3', function(e){
+		reverb.buffer = e;
+		console.log("reverb ir loaded");
+	});
+
 
 };
