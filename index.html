@@ -77,15 +77,15 @@
 		 	data-anchor-target="#section1"
 		 	data-top="opacity:0;transform:translateY(-0px);"
 		 	data--11500p-top="opacity:0;transform:translateY(-0px);"
-		 	data--13500p-top="opacity:1;transform:translateY(-1150px)"
-		 	data--18000p-top="opacity:0;transform:translateY(-2000px);"
+		 	data--13500p-top="opacity:1;transform:translateY(-800px)"
+		 	data--19800p-top="opacity:0;transform:translateY(-2000px);"
 		></div>
 		<div id='fr2red'
 		 	data-anchor-target="#section1"
 		 	data-top="opacity:0;transform:translateY(-0px);"
 		 	data--11500p-top="opacity:0;transform:translateY(-0px);"
-		 	data--13500p-top="opacity:1;transform:translateY(-600px)"
-		 	data--16500p-top="opacity:0;transform:translateY(-1300px);"
+		 	data--13500p-top="opacity:1;transform:translateY(-500px)"
+		 	data--20000p-top="opacity:0;transform:translateY(-1300px);"
 		></div>
 		<!-- anchor pointed elements -->
 		<div class='text' id='firstEvent' 
@@ -132,6 +132,22 @@
 		<div class='text' id='rhytmIndicator'
 					<h1>Rhytm Start<h1>
 		</div>
+
+		<div class='text' id='interactive' 
+					data-anchor-target="#section1"
+					>
+					<h1>Interactive Section</h1>
+
+					Click on the hexagons to trigger notes
+		</div>
+		<div class='text' id='end' 
+					data-anchor-target="#section1"
+					data-200p-bottom="opacity:0"
+					data-end="opacity:1">
+					<h1>The End</h1>
+
+					Have you tried scrolling back up?
+		</div>
 		<div class='text' id='panIndicator'
 			data--6000p-top="transform: translateX(0px); opacity:0"
 			data--10900p-top="transform: translateX(0px); opacity:0"
@@ -144,6 +160,16 @@
             data-emit-events>
 			<h1>Pan Arps: Dynamic AudioParams<h1>
 		</div>
+		<div id="hexagons" data-anchor-target="#section1"
+					data-800p-bottom="opacity:1"
+					data-500p-bottom="opacity:0">
+			<svg version="1.1" id="hexas" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="550px" height="250px" viewBox="0 0 550 250" enable-background="new 0 0 550 250" xml:space="preserve">
+<polygon class='hexa'id="hexa1"fill="#231F20" points="93.292,3.405 11.921,80.739 12.085,173.361 93.379,247.566 174.751,176.756 174.58,79.839 "/>
+<polygon class='hexa'id="hexa2"fill="#231F20" points="274.622,3.405 193.252,80.739 193.415,173.361 274.708,247.566 356.082,176.756 355.909,79.839 "/>
+<polygon class='hexa'id="hexa3"fill="#231F20" points="455.954,3.405 374.583,80.739 374.746,173.361 456.039,247.566 537.413,176.756 537.24,79.839 "/>
+</svg>
+		</div>
 		<!-- skrollr wrapper -->
 		<div id="skrollr-body">
 			<!-- SECTIONS -->
@@ -154,7 +180,9 @@
 				data--9000p-top
 				data--11000p-top
 				data--16000p-top
-				data-top-bottom=""
+				data--16200p-top
+				data-500p-bottom
+				data-top-bottom=
 				data-100p-bottom
 				data-emit-events>
 			</div>

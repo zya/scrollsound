@@ -139,17 +139,31 @@ h1{
 	z-index: 5;
 }
 
-@-webkit-keyframes float {
-    0%   {margin-left: 0px;}
-    50%  {margin-left: 20px;
-    100% {background: 0;}
+#hexagons{
+	position: fixed;
+	z-index: 10;
+	top: 58vh;
+	width: 100vw;
+	text-align: center;
+}
+.hexa{
+	fill: white;
+	opacity: 0;
 }
 
-@keyframes float {
-    0%   {margin-left: 0px;}
-    50%  {margin-left: 20px;
-    100% {background: 0;}
+.hexa:hover{
+	cursor: pointer;
 }
+
+#hexas{
+	width:17vw;
+	opacity: 1;
+}
+
+
+
+
+
 
 
 

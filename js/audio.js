@@ -158,10 +158,10 @@ function keyframeHandler(element, name, direction) {
 	if (element.id === "firstEvent") {
 		if (name === "data-1800pTop" && direction === "down") {
 			lead(now, 329.63 * 4, 0.08, 1);
-			fadeInAndOut(element, 0.5, 1800, 1.2);
+			fadeInAndOut(element, 0.5, 1500, 1.2);
 		} else if (name === "data-2000pTop" && direction === "up") {
 			lead(now, 329.63 * 4, 0.08, 1);
-			fadeInAndOut(element, 0.5, 1800, 1.2);
+			fadeInAndOut(element, 0.5, 1500, 1.2);
 		} else if (name === "data-1200pTop" || name === "data-2400pTop") {
 			fadeOut(element, 0.5);
 		}
@@ -171,10 +171,10 @@ function keyframeHandler(element, name, direction) {
 	if (element.id === "secondEvent") {
 		if (name === "data-3000pTop" && direction === "down") {
 			lead(now, 523.25 * 2, 0.1, 1);
-			fadeInAndOut(element, 0.5, 1800, 1.2);
+			fadeInAndOut(element, 0.5, 1500, 1.2);
 		} else if (name === "data-3200pTop" && direction === "up") {
 			lead(now, 523.25 * 2, 0.1, 1);
-			fadeInAndOut(element, 0.5, 1800, 1.2);
+			fadeInAndOut(element, 0.5, 1500, 1.2);
 		} else if (name === "data-2500pTop" || name === "data-3600pTop") {
 			fadeOut(element, 0.5);
 		}
@@ -184,10 +184,10 @@ function keyframeHandler(element, name, direction) {
 	if (element.id === "thirdEvent") {
 		if (name === "data-3900pTop" && direction === "down") {
 			lead(now, 392.00 * 2, 0.1, 1);
-			fadeInAndOut(element, 0.5, 1800, 1.2);
+			fadeInAndOut(element, 0.5, 1500, 1.2);
 		} else if (name === "data-4000pTop" && direction === "up") {
 			lead(now, 392.00 * 2, 0.1, 1);
-			fadeInAndOut(element, 0.5, 1800, 1.2);
+			fadeInAndOut(element, 0.5, 1500, 1.2);
 		} else if (name === "data-3400pTop" || name === "data-4200pTop") {
 			fadeOut(element, 0.5);
 		}
@@ -197,10 +197,10 @@ function keyframeHandler(element, name, direction) {
 	if (element.id === "forthEvent") {
 		if (name === "data-4800pTop" && direction === "down") {
 			lead(now, 329.63 * 2, 0.1, 3);
-			fadeInAndOut(element, 0.5, 3000, 1.2);
+			fadeInAndOut(element, 0.5, 2000, 1.2);
 		} else if (now, name === "data-5000pTop" && direction === "up") {
 			lead(now, 329.63 * 2, 0.1, 3);
-			fadeInAndOut(element, 0.5, 1800, 1.0);
+			fadeInAndOut(element, 0.5, 1500, 1.0);
 		} else if (name === "data-4400pTop" || name === "data-5200pTop") {
 			fadeOut(element, 0.5);
 		}
@@ -209,6 +209,10 @@ function keyframeHandler(element, name, direction) {
 	// RHYTM EVENT
 	if (element.id === "section1") {
 		var indic = document.getElementById("rhytmIndicator");
+		var inter = document.getElementById("interactive");
+		var hexa1 = document.getElementById("hexa1");
+		var hexa2 = document.getElementById("hexa2");
+		var hexa3 = document.getElementById("hexa3");
 		if (name === "data-7000pTop" && direction === "down") {
 			loop._interval = oneBar;
 			indic.innerHTML = "<h1>Rhytm Start</h1>";
@@ -259,17 +263,66 @@ function keyframeHandler(element, name, direction) {
 			isSecondPattern = false;
 			isFinalPattern = true;
 			loopIsPlaying = true;
-		} else if (name === "data-16000pTop" && direction === "up") {
+			fadeIn(inter, 2);
+			setTimeout(function() {
+				fadeIn(hexa1, 1.5);
+				hexa1.addEventListener("click", function() {
+					var now = context.currentTime;
+					lead(now, 329.63 * 4, 0.1, 0.5);
+				});
+				hexa1.addEventListener("touchstart", function() {
+					var now = context.currentTime;
+					lead(now, 329.63 * 4, 0.1, 0.5);
+				});
+				var now = context.currentTime;
+				lead(now + 0.5, 329.63 * 4, 0.1, 0.5);
+				setTimeout(function() {
+					var now = context.currentTime;
+					fadeIn(hexa2, 1.5);
+					lead(now + 0.5, 523.25 * 2, 0.1, 0.5);
+					hexa2.addEventListener("click", function() {
+						var now = context.currentTime;
+						lead(now, 523.25 * 2, 0.1, 0.5);
+					});
+					hexa2.addEventListener("touchstart", function() {
+						var now = context.currentTime;
+						lead(now, 523.25 * 2, 0.1, 0.5);
+					});
+					setTimeout(function() {
+						var now = context.currentTime;
+						fadeIn(hexa3, 1.5);
+						lead(now + 0.5, 392.00 * 2, 0.1, 0.5);
+						hexa3.addEventListener("click", function() {
+							var now = context.currentTime;
+							lead(now, 392.00 * 2, 0.1, 0.5);
+						});
+						hexa3.addEventListener("touchstart", function() {
+							var now = context.currentTime;
+							lead(now, 392.00 * 2, 0.1, 0.5);
+						});
+					}, 1000);
+				}, 1000);
+			}, 5000);
+		} else if (name === "data-16200pTop" && direction === "up") {
 			loop._interval = oneBar;
 			isFirstPattern = true;
 			isSecondPattern = false;
 			isFinalPattern = false;
 			loopIsPlaying = true;
-		} else if (name === "data100pBottom" && direction === "down"){
-			console.log('test');
+			fadeOut(inter, 1);
+			fadeOut(hexa1,1);
+			fadeOut(hexa2,1);
+			fadeOut(hexa3,1);
+		} else if (name === "data500pBottom" && direction === "down") {
+			fadeOut(inter, 1);
+			loopIsPlaying = false;
+		} else if (name === "data500pBottom" && direction === "up") {
+			loopIsPlaying = true;
+			fadeIn(inter, 1);
+		} else if (name === "data100pBottom" && direction === "down") {
 			loopIsPlaying = false;
 			loop._interval = 0.5;
-		} else if (name === "data100pBottom" && direction === "up"){
+		} else if (name === "data100pBottom" && direction === "up") {
 			loopIsPlaying = true;
 			loop._interval = 4;
 			loop._interval = oneBar;
