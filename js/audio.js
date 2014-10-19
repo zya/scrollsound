@@ -300,8 +300,8 @@ function keyframeHandler(element, name, direction) {
 							var now = context.currentTime;
 							lead(now, 392.00 * 2, 0.1, 0.5);
 						});
-					}, 1000);
-				}, 1000);
+					}, 1500);
+				}, 1500);
 			}, 5000);
 		} else if (name === "data-16200pTop" && direction === "up") {
 			loop._interval = oneBar;
