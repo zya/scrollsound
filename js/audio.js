@@ -10,11 +10,11 @@ panner.panningModel = "equalpower";
 panner.setPosition(0, 0, 0);
 grainGain.gain.value = 0.6;
 var kickGain = context.createGain();
-kickGain.gain.value = 0.3;
+kickGain.gain.value = 0.19;
 var leadGain = context.createGain();
-leadGain.gain.value = 0.15;
+leadGain.gain.value = 0.10;
 var arpGain = context.createGain();
-arpGain.gain.value = 0.2;
+arpGain.gain.value = 0.21;
 var reverb;
 reverb = context.createConvolver();
 reverb.connect(reverbGain);
@@ -111,16 +111,17 @@ function loopFunction(next) {
 			kick(next, 50, 0.005, 0.5, 0.01);
 			kick(next + (oneBar / 2), 50, 0.005, 0.5, 0.01);
 			kick(next + (oneBar / 1.5), 50, 0.005, 0.5, 0.01);
-			arpNote(next + (oneBar / 6), notes[0] / 2, 0.01, 0.15);
-			arpNote(next + (oneBar / 1.3), notes[2] * 2, 0.01, 0.3);
-			arpNote(next + (oneBar / 3), notes[1], 0.01, 0.5);
+
+			arpNote(next + (oneBar / 6), notes[0] / 2, 0.01, (Math.random() * 0.3) + 0.15);
+			arpNote(next + (oneBar / 1.3), notes[2] * 2, 0.01, (Math.random() * 0.6) + 0.3);
+			arpNote(next + (oneBar / 3), notes[1], 0.01, (Math.random() * 0.3) + 0.15);
 		} else if (isSecondPattern) {
 			kick(next, 50, 0.005, 0.5, 0.01);
 			kick(next + (oneBar / 2), 50, 0.005, 0.5, 0.01);
 			kick(next + (oneBar / 1.5), 50, 0.005, 0.5, 0.01);
-			arpNote(next + (oneBar / 6), notes[0], 0.01, 0.15);
-			arpNote(next + (oneBar / 1.3), notes[2], 0.01, 0.3);
-			arpNote(next + (oneBar / 3), notes[1] * 2, 0.01, 0.5);
+			arpNote(next + (oneBar / 6), notes[0], 0.01, (Math.random() * 0.6) + 0.3);
+			arpNote(next + (oneBar / 1.3), notes[2], 0.01, (Math.random() * 0.3) + 0.15);
+			arpNote(next + (oneBar / 3), notes[1] * 2, 0.01, (Math.random() * 0.3) + 0.15);
 		} else if (isFinalPattern) {
 			var note = notes[Math.round(Math.random() * 3)];
 			lead(next, note / 2, 0.1, 0.9);
@@ -156,10 +157,10 @@ function keyframeHandler(element, name, direction) {
 	//FIRST EVENT STUFF
 	if (element.id === "firstEvent") {
 		if (name === "data-1800pTop" && direction === "down") {
-			lead(now, 329.63 * 4, 0.1, 1);
+			lead(now, 329.63 * 4, 0.08, 1);
 			fadeInAndOut(element, 0.5, 1800, 1.2);
 		} else if (name === "data-2000pTop" && direction === "up") {
-			lead(now, 329.63 * 4, 0.1, 1);
+			lead(now, 329.63 * 4, 0.08, 1);
 			fadeInAndOut(element, 0.5, 1800, 1.2);
 		} else if (name === "data-1200pTop" || name === "data-2400pTop") {
 			fadeOut(element, 0.5);
@@ -199,7 +200,7 @@ function keyframeHandler(element, name, direction) {
 			fadeInAndOut(element, 0.5, 3000, 1.2);
 		} else if (now, name === "data-5000pTop" && direction === "up") {
 			lead(now, 329.63 * 2, 0.1, 3);
-			fadeInAndOut(element, 0.5, 3000, 1.2);
+			fadeInAndOut(element, 0.5, 1800, 1.0);
 		} else if (name === "data-4400pTop" || name === "data-5200pTop") {
 			fadeOut(element, 0.5);
 		}
@@ -252,13 +253,13 @@ function keyframeHandler(element, name, direction) {
 			isSecondPattern = true;
 			isFinalPattern = false;
 			loopIsPlaying = true;
-		} else if (name === "data-15500pTop" && direction === "down") {
+		} else if (name === "data-16000pTop" && direction === "down") {
 			loop._interval = 4;
 			isFirstPattern = false;
 			isSecondPattern = false;
 			isFinalPattern = true;
 			loopIsPlaying = true;
-		} else if (name === "data-15500pTop" && direction === "up") {
+		} else if (name === "data-16000pTop" && direction === "up") {
 			loop._interval = oneBar;
 			isFirstPattern = true;
 			isSecondPattern = false;

@@ -4,6 +4,7 @@ html, body {
 	margin: 0;
 	padding: 0;
 	overflow-x: hidden;
+	/*overflow-y: hidden;*/
 }
 #skrollr-body {
 	height: 100%;
@@ -19,7 +20,7 @@ html, body {
 	margin: 0;
 	padding: 0;
 	z-index: 9999;
-	height: 4px;
+	height: 5px;
 }
 .section {
 	position: fixed;
@@ -43,10 +44,7 @@ html, body {
 	font-size: 17px;
 	color: white;
 	opacity: 0;
-}
-
-#rhytmIndicator {
-	opacity: 0;
+	z-index: 10;
 }
 
 h1{
@@ -76,7 +74,6 @@ h1{
 	width: 50vw;
 	height: 20000%;
 	z-index: 4;
-	opacity: 0.3;
 }
 
 #fr2{
@@ -87,7 +84,71 @@ h1{
 	left:25vw;
 	height: 20000%;
 	z-index: 8;
-	opacity: 0.40;
+}
+
+#fr1red{
+	background-image: url("/assets/images/fr3red.png");
+	position: fixed;
+	top: 95vh;
+	left:25vw;
+	width: 50vw;
+	height: 20000%;
+	z-index: 4;
+}
+
+#fr2red{
+	background-image: url("/assets/images/fr2red.png");
+	position: fixed;
+	top: 90vh;
+	width: 50vw;
+	left:25vw;
+	height: 20000%;
+	z-index: 8;
+}
+
+#seco{
+	display: block;
+	position: fixed;
+	z-index: 100;
+	margin-left: auto;
+	left: 50vw;
+	top: 100vh;
+	margin-left: -139px;
+	z-index: 5;
+}
+
+#seco2{
+	display: block;
+	position: fixed;
+	z-index: 100;
+	margin-left: auto;
+	left: 20vw;
+	top: 100vh;
+	margin-left: -139px;
+	z-index: 5;
+}
+
+#seco3{
+	display: block;
+	position: fixed;
+	z-index: 100;
+	margin-left: auto;
+	left: 60vw;
+	top: 100vh;
+	margin-left: -139px;
+	z-index: 5;
+}
+
+@-webkit-keyframes float {
+    0%   {margin-left: 0px;}
+    50%  {margin-left: 20px;
+    100% {background: 0;}
+}
+
+@keyframes float {
+    0%   {margin-left: 0px;}
+    50%  {margin-left: 20px;
+    100% {background: 0;}
 }
 
 

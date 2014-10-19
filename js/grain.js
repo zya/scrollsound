@@ -1,7 +1,7 @@
 /**
  * Grain constructor - instantly plays a grain using the settings passed
- * @param {AudioContext} Audio Context object
- * @param {AudioBuffer} audioBuffer
+ * @param {AudioContext} context Audio Context object
+ * @param {AudioBuffer} buffer
  * @param {AudioNode} destination
  * @param {Number} attack TODO
  * @param {Number} release TODO
@@ -31,6 +31,5 @@ function grain(context, buffer, destination, attack, release, offset) {
 
 	setTimeout(function() {
 		gain.disconnect();
-	}, (attack + release) * 1000);
-
+	}, (attack + release + 0.001) * 1000);
 }

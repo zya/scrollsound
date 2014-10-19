@@ -11,7 +11,7 @@ window.onload = function() {
 	s = skrollr.init({
 		smoothScrolling: true,
 		mobileDeceleration:0.0009,
-		// forceHeight: true,
+		// forceHeight: false,
 		render: function(e) {
 			progress = e.curTop / e.maxTop;
 		},

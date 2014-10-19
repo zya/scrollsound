@@ -25,64 +25,107 @@
 		                      data--210p-top="opacity:0; transform: translateY(-200px);"
 							  data-emit-events>
 		<h1>Scrolling Through Sound</h1>
-		Scroll down the page
-
+		Scrolling as a method of interaction with audio on the web<br>
+		<br>
 		</div>
 		<div id='fr1'
 		 	data-anchor-target="#section1"
-		 	data-top="transform: translateY(0px);"
-		 	data-top="transform: translateY(0px);"
-		 	data-end="transform: translateY(-9000px)"
+		 	data-top="opacity:0.80;transform:translateY(-0px);"
+		 	data--4800p-top="opacity:0.80;transform:translateY(-1150px)"
+		 	data--6800p-top="opacity:0;transform:translateY(-2000px);"
 		></div>
 		<div id='fr2'
 		 	data-anchor-target="#section1"
-		 	data-top="transform: translateY(0px)"
-		 	data-end="transform: translateY(-6000px)"
+		 	data-top="opacity:0.80;transform:translateY(-0px);"
+		 	data--4800p-top="opacity:0.80;transform:translateY(-1700px)"
+		 	data--6800p-top="opacity:0;transform:translateY(-3000px);"
 		></div>
 		<div id='back'
 		 	data-anchor-target="#section1"
-			data-top="transform: translateY(0px); opacity:1"
+			data-top="transform: translateY(0px);"
+			data--4800p-top="opacity:1.80;transform:translateY(-400px)"
+			data--6800p-top="opacity:0;transform:translateY(-500px);"
 		 	data-end="transform: translateY(-2000px);"
+		></div>
+
+		<img src="assets/images/seco.png"id='seco'
+			data-top="opacity:0;"
+			data--7000p-top="opacity:0;transform:translateY(0px) rotate(0deg)"
+			data--7100p-top="opacity:0;transform:translateY(0px) rotate(0deg)"
+			data--7500p-top="opacity:1;transform:translateY(-300px) rotate(50deg)"
+			data--9500p-top="opacity:0;transform:translateY(-1000px) rotate(100deg)"
+		 	data-anchor-target="#section1"
+		></img>
+
+		<img src="assets/images/seco2.png"id='seco2'
+			data-top="opacity:0;"
+			data--7800p-top="opacity:0;transform:translateY(0px) rotate(0deg)"
+			data--8000p-top="opacity:0;transform:translateY(0px) rotate(0deg)"
+			data--8500p-top="opacity:1;transform:translateY(-400px) rotate(-25deg)"
+			data--10000p-top="opacity:0;transform:translateY(-800px) rotate(-50deg)"
+		 	data-anchor-target="#section1"
+		></img>
+		<img src="assets/images/seco3.png"id='seco3'
+			data-top="opacity:0;"
+			data--8000p-top="opacity:0;transform:translateY(0px) rotate(0deg)"
+			data--8500p-top="opacity:0;transform:translateY(0px) rotate(-10deg)"
+			data--10000p-top="opacity:0.8;transform:translateY(-500px) rotate(-25deg)"
+			data--11500p-top="opacity:0;transform:translateY(-1000px) rotate(-80deg)"
+		 	data-anchor-target="#section1"
+		></img>
+		<div id='fr1red'
+		 	data-anchor-target="#section1"
+		 	data-top="opacity:0;transform:translateY(-0px);"
+		 	data--11500p-top="opacity:0;transform:translateY(-0px);"
+		 	data--13500p-top="opacity:1;transform:translateY(-1150px)"
+		 	data--18000p-top="opacity:0;transform:translateY(-2000px);"
+		></div>
+		<div id='fr2red'
+		 	data-anchor-target="#section1"
+		 	data-top="opacity:0;transform:translateY(-0px);"
+		 	data--11500p-top="opacity:0;transform:translateY(-0px);"
+		 	data--13500p-top="opacity:1;transform:translateY(-600px)"
+		 	data--16500p-top="opacity:0;transform:translateY(-1300px);"
 		></div>
 		<!-- anchor pointed elements -->
 		<div class='text' id='firstEvent' 
-					data-anchor-target="#section1"
-					data--1200p-top
-					data--1800p-top
-					data--2000p-top
-					data--2400p-top
-					data-emit-events>
-					<h1>This Is An Event<h1>
+			data-anchor-target="#section1"
+			data--1200p-top
+			data--1800p-top
+			data--2000p-top
+			data--2400p-top
+			data-emit-events>
+			<h1>This Is An Event<h1>
 		</div>
 
 		<div class='text' id='secondEvent' 
-					data-anchor-target="#section1"
-					data--2500p-top
-					data--3000p-top
-					data--3200p-top
-					data--3600p-top
-					data-emit-events>
-					<h1>This Is Also An Event<h1>
+			data-anchor-target="#section1"
+			data--2500p-top
+			data--3000p-top
+			data--3200p-top
+			data--3600p-top
+			data-emit-events>
+			<h1>This Is Also An Event<h1>
 		</div>
 
 		<div class='text' id='thirdEvent' 
-					data-anchor-target="#section1"
-					data--3400p-top
-					data--3900p-top
-					data--4000p-top
-					data--4200p-top
-					data-emit-events>
-					<h1>One More<h1>
+			data-anchor-target="#section1"
+			data--3400p-top
+			data--3900p-top
+			data--4000p-top
+			data--4200p-top
+			data-emit-events>
+			<h1>One More<h1>
 		</div>
 
 		<div class='text' id='forthEvent' 
-					data-anchor-target="#section1"
-					data--4400p-top
-					data--4800p-top
-					data--5000p-top
-					data--5200p-top
-					data-emit-events>
-					<h1>Last Note<h1>
+			data-anchor-target="#section1"
+			data--4400p-top
+			data--4800p-top
+			data--5000p-top
+			data--5200p-top
+			data-emit-events>
+			<h1>Last Note<h1>
 		</div>
 
 		<!-- RYTHM EVENTS -->
@@ -90,16 +133,16 @@
 					<h1>Rhytm Start<h1>
 		</div>
 		<div class='text' id='panIndicator'
-					data--6000p-top="transform: translateX(0px); opacity:0"
-					data--10900p-top="transform: translateX(0px); opacity:0"
-					data--11000p-top="transform: translateX(0px); opacity:0;"
-					data--12500p-top="transform: translateX(-150px); opacity:1;"
-					data--14000p-top="transform: translateX(150px); opacity:1"
-					data--15000p-top="transform: translateX(0px); opacity:1"
-					data--15500p-top="transform: translateX(0px); opacity:0.0"
-		            data-anchor-target="#section1"
-		            data-emit-events>
-					<h1>Pan Arps: Dynamic AudioParams<h1>
+			data--6000p-top="transform: translateX(0px); opacity:0"
+			data--10900p-top="transform: translateX(0px); opacity:0"
+			data--11000p-top="transform: translateX(0px); opacity:0;"
+			data--12500p-top="transform: translateX(-150px); opacity:1;"
+			data--14000p-top="transform: translateX(150px); opacity:1"
+			data--15000p-top="transform: translateX(0px); opacity:0.5"
+			data--15500p-top="transform: translateX(0px); opacity:0.0"
+            data-anchor-target="#section1"
+            data-emit-events>
+			<h1>Pan Arps: Dynamic AudioParams<h1>
 		</div>
 		<!-- skrollr wrapper -->
 		<div id="skrollr-body">
@@ -110,7 +153,7 @@
 				data--7000p-top
 				data--9000p-top
 				data--11000p-top
-				data--15500p-top
+				data--16000p-top
 				data-top-bottom=""
 				data-100p-bottom
 				data-emit-events>
