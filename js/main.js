@@ -26,7 +26,7 @@ window.onload = function() {
 	}, true);
 
 	var pannerElement = document.getElementById("panIndicator");
-	loadSound(context, 'assets/audio/1.wav', function(e) {
+	loadSound(context, 'assets/audio/1.mp3', function(e) {
 		buffer = e;
 		setInterval(function() {
 			var offset = map(progress, 0.0, 1.0, 0.0, buffer.duration);
@@ -47,8 +47,5 @@ window.onload = function() {
 		reverb.buffer = e;
 		console.log("reverb ir loaded");
 	});
-
-	
-
 
 };

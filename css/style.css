@@ -4,7 +4,7 @@ html, body {
 	margin: 0;
 	padding: 0;
 	overflow-x: hidden;
-	/*overflow-y: hidden;*/
+	background-color: black;
 }
 #skrollr-body {
 	height: 100%;
@@ -156,7 +156,7 @@ h1{
 }
 
 #hexas{
-	width:17vw;
+	width:10vw;
 	opacity: 1;
 }
 
