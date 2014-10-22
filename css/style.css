@@ -25,8 +25,8 @@ html, body {
 .section {
 	position: fixed;
 	width: 100vw; 
-	height: 20000%; /* the actual size of each section */
-	max-height: 20000vh; /* the actual size of each section */
+	height: 15000%; /* the actual size of each section */
+	max-height: 15000vh; /* the actual size of each section */
 	margin: 0;
 	padding: 0;
 	text-align: center;

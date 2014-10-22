@@ -156,52 +156,52 @@ function keyframeHandler(element, name, direction) {
 	var now = context.currentTime;
 	//FIRST EVENT STUFF
 	if (element.id === "firstEvent") {
-		if (name === "data-1800pTop" && direction === "down") {
+		if (name === "data-1200pTop" && direction === "down") {
 			lead(now, 329.63 * 4, 0.08, 1);
 			fadeInAndOut(element, 0.5, 1500, 1.2);
-		} else if (name === "data-2000pTop" && direction === "up") {
+		} else if (name === "data-1500pTop" && direction === "up") {
 			lead(now, 329.63 * 4, 0.08, 1);
 			fadeInAndOut(element, 0.5, 1500, 1.2);
-		} else if (name === "data-1200pTop" || name === "data-2400pTop") {
+		} else if (name === "data-1200pTop" || name === "data-1350pTop") {
 			fadeOut(element, 0.5);
 		}
 	}
 
 	//SECOND EVENT
 	if (element.id === "secondEvent") {
-		if (name === "data-3000pTop" && direction === "down") {
+		if (name === "data-2250pTop" && direction === "down") {
 			lead(now, 523.25 * 2, 0.1, 1);
 			fadeInAndOut(element, 0.5, 1500, 1.2);
-		} else if (name === "data-3200pTop" && direction === "up") {
+		} else if (name === "data-1800pTop" && direction === "up") {
 			lead(now, 523.25 * 2, 0.1, 1);
 			fadeInAndOut(element, 0.5, 1500, 1.2);
-		} else if (name === "data-2500pTop" || name === "data-3600pTop") {
+		} else if (name === "data-1875pTop" || name === "data-2700pTop") {
 			fadeOut(element, 0.5);
 		}
 	}
 
 	//THIRD EVENT
 	if (element.id === "thirdEvent") {
-		if (name === "data-3900pTop" && direction === "down") {
+		if (name === "data-2925pTop" && direction === "down") {
 			lead(now, 392.00 * 2, 0.1, 1);
 			fadeInAndOut(element, 0.5, 1500, 1.2);
-		} else if (name === "data-4000pTop" && direction === "up") {
+		} else if (name === "data-3000pTop" && direction === "up") {
 			lead(now, 392.00 * 2, 0.1, 1);
 			fadeInAndOut(element, 0.5, 1500, 1.2);
-		} else if (name === "data-3400pTop" || name === "data-4200pTop") {
+		} else if (name === "data-2550pTop" || name === "data-3150pTop") {
 			fadeOut(element, 0.5);
 		}
 	}
 
 	//FORTH EVENT
 	if (element.id === "forthEvent") {
-		if (name === "data-4800pTop" && direction === "down") {
+		if (name === "data-3600pTop" && direction === "down") {
 			lead(now, 329.63 * 2, 0.1, 3);
 			fadeInAndOut(element, 0.5, 2000, 1.2);
-		} else if (now, name === "data-5000pTop" && direction === "up") {
+		} else if (now, name === "data-3750pTop" && direction === "up") {
 			lead(now, 329.63 * 2, 0.1, 3);
 			fadeInAndOut(element, 0.5, 1500, 1.0);
-		} else if (name === "data-4400pTop" || name === "data-5200pTop") {
+		} else if (name === "data-3300pTop" || name === "data-3900pTop") {
 			fadeOut(element, 0.5);
 		}
 	}
@@ -213,7 +213,7 @@ function keyframeHandler(element, name, direction) {
 		var hexa1 = document.getElementById("hexa1");
 		var hexa2 = document.getElementById("hexa2");
 		var hexa3 = document.getElementById("hexa3");
-		if (name === "data-7000pTop" && direction === "down") {
+		if (name === "data-5250pTop" && direction === "down") {
 			loop._interval = oneBar;
 			indic.innerHTML = "<h1>Rhytm Start</h1>";
 			fadeInAndOut(indic, 1, 3000, 1.2);
@@ -221,7 +221,7 @@ function keyframeHandler(element, name, direction) {
 			isFirstPattern = true;
 			isSecondPattern = false;
 			isFinalPattern = false;
-		} else if (name === "data-7000pTop" && direction === "up") {
+		} else if (name === "data-5250pTop" && direction === "up") {
 			loop._interval = oneBar / 2;
 			indic.innerHTML = "<h1>Rhytm Stop</h1>";
 			fadeInAndOut(indic, 1, 1000, 0.9);
@@ -229,7 +229,7 @@ function keyframeHandler(element, name, direction) {
 			isFirstPattern = true;
 			isSecondPattern = false;
 			isFinalPattern = false;
-		} else if (name === "data-9000pTop" && direction === "down") {
+		} else if (name === "data-6750pTop" && direction === "down") {
 			loop._interval = oneBar;
 			indic.innerHTML = "<h1>Pattern Change</h1>";
 			isFirstPattern = false;
@@ -237,7 +237,7 @@ function keyframeHandler(element, name, direction) {
 			isFinalPattern = false;
 			loopIsPlaying = true;
 			fadeInAndOut(indic, 1, 1000, 0.9);
-		} else if (name === "data-9000pTop" && direction === "up") {
+		} else if (name === "data-6750pTop" && direction === "up") {
 			loop._interval = oneBar;
 			indic.innerHTML = "<h1>Pattern Change Again</h1>";
 			isFirstPattern = true;
@@ -245,19 +245,19 @@ function keyframeHandler(element, name, direction) {
 			isFinalPattern = false;
 			loopIsPlaying = true;
 			fadeInAndOut(indic, 1, 1000, 0.9);
-		} else if (name === "data-11000pTop" && direction === "down") {
+		} else if (name === "data-8250pTop" && direction === "down") {
 			loop._interval = oneBar;
 			isFirstPattern = true;
 			isSecondPattern = false;
 			isFinalPattern = false;
 			loopIsPlaying = true;
-		} else if (name === "data-11000pTop" && direction === "up") {
+		} else if (name === "data-8250pTop" && direction === "up") {
 			loop._interval = oneBar;
 			isFirstPattern = false;
 			isSecondPattern = true;
 			isFinalPattern = false;
 			loopIsPlaying = true;
-		} else if (name === "data-16000pTop" && direction === "down") {
+		} else if (name === "data-12000pTop" && direction === "down") {
 			loop._interval = 4;
 			isFirstPattern = false;
 			isSecondPattern = false;
@@ -303,7 +303,7 @@ function keyframeHandler(element, name, direction) {
 					}, 1500);
 				}, 1500);
 			}, 5000);
-		} else if (name === "data-16200pTop" && direction === "up") {
+		} else if (name === "data-12150pTop" && direction === "up") {
 			loop._interval = oneBar;
 			isFirstPattern = true;
 			isSecondPattern = false;
