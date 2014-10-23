@@ -1,22 +1,20 @@
 window.AudioContext = (window.AudioContext || window.webkitAudioContext || window.mozAudioContext || window.msAudioContext);
 var context = new AudioContext();
 var buffer = null;
+//misc
 var dummyOsc = context.createOscillator();
-var master = context.createGain();
-var reverbGain = context.createGain();
-var grainGain = context.createGain();
+var reverb = context.createConvolver();
 var panner = context.createPanner();
 panner.panningModel = "equalpower";
 panner.setPosition(0, 0, 0);
-grainGain.gain.value = 0.6;
+//gain nodes
 var kickGain = context.createGain();
-kickGain.gain.value = 0.19;
 var leadGain = context.createGain();
-leadGain.gain.value = 0.10;
 var arpGain = context.createGain();
-arpGain.gain.value = 0.21;
-var reverb;
-reverb = context.createConvolver();
+var master = context.createGain();
+var reverbGain = context.createGain();
+var grainGain = context.createGain();
+//connections
 reverb.connect(reverbGain);
 leadGain.connect(reverb);
 arpGain.connect(panner);
@@ -26,14 +24,18 @@ grainGain.connect(master);
 leadGain.connect(master);
 panner.connect(master);
 kickGain.connect(master);
-reverbGain.gain.value = 0.9;
-panner.setPosition(0, 0, 0);
-master.gain.value = 1;
 master.connect(context.destination);
+//gains
+master.gain.value = 1;
+arpGain.gain.value = 0.21;
+leadGain.gain.value = 0.10;
+kickGain.gain.value = 0.19;
+grainGain.gain.value = 0.6;
+reverbGain.gain.value = 0.9;
+//loop settings
 var oneBar = 2;
 var loop = new Loop(loopFunction, 0, oneBar, context);
 loop._interval = 0.5;
-console.log(loop);
 var loopIsPlaying = false;
 var isFirstPattern = false;
 var isSecondPattern = false;
@@ -150,9 +152,10 @@ var fadeIn = function(element, inTime) {
 	element.style.transition = "all " + inTime + "s ease-out 0.5s";
 	element.style.opacity = 1;
 };
+
 // KEYFRAME HANDLER
 function keyframeHandler(element, name, direction) {
-	console.log(name);
+	// console.log(name);
 	var now = context.currentTime;
 	//FIRST EVENT STUFF
 	if (element.id === "firstEvent") {
@@ -302,7 +305,7 @@ function keyframeHandler(element, name, direction) {
 						});
 					}, 1500);
 				}, 1500);
-			}, 5000);
+			}, 3000);
 		} else if (name === "data-12150pTop" && direction === "up") {
 			loop._interval = oneBar;
 			isFirstPattern = true;

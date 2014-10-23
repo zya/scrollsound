@@ -1,11 +1,11 @@
 /**
  * Grain constructor - instantly plays a grain using the settings passed
- * @param {AudioContext} context Audio Context object
- * @param {AudioBuffer} buffer
- * @param {AudioNode} destination
- * @param {Number} attack TODO
- * @param {Number} release TODO
- * @param {Number} offset TODO
+ * @param {AudioContext} context - Audio Context object
+ * @param {AudioBuffer} buffer - audio buffer to read from
+ * @param {AudioNode} destination - Audio node which the grains will be connected to
+ * @param {Number} attack - attack time of the grain
+ * @param {Number} release - release time of the grain
+ * @param {Number} offset - playback offset value
  */
 function grain(context, buffer, destination, attack, release, offset) {
 

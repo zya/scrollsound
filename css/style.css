@@ -11,7 +11,6 @@ html, body {
 	max-height: 100%;
 	margin: 0;
 	padding: 0;
-	/*background-color: gray;*/
 }
 #progressBar {
 	position: fixed;
@@ -24,7 +23,7 @@ html, body {
 }
 .section {
 	position: fixed;
-	width: 100vw; 
+	width: 100vw;
 	height: 15000%; /* the actual size of each section */
 	max-height: 15000vh; /* the actual size of each section */
 	margin: 0;
@@ -32,10 +31,9 @@ html, body {
 	text-align: center;
 	background-color: black;
 }
-
-.text{
+.text {
 	position: fixed;
-	top:62vh;
+	top: 62vh;
 	text-align: center;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 100;
@@ -46,67 +44,60 @@ html, body {
 	opacity: 0;
 	z-index: 10;
 }
-
-h1{
+h1 {
 	font-weight: 400;
 	font-size: 22px;
 	margin: 0;
 }
-#description{
+#description {
 	opacity: 1;
 }
-
 #back {
 	background-image: url("../assets/images/back.png");
 	position: fixed;
-	margin:0;
+	margin: 0;
 	padding: 0;
 	width: 100vw;
 	height: 15000%;
 	z-index: 2;
 }
-
-#fr1{
+#fr1 {
 	background-image: url("../assets/images/fr3.png");
 	position: fixed;
 	top: 95vh;
-	left:25vw;
+	left: 25vw;
 	width: 50vw;
 	height: 20000%;
 	z-index: 4;
 }
-
-#fr2{
+#fr2 {
 	background-image: url("../assets/images/fr2.png");
 	position: fixed;
 	top: 90vh;
 	width: 50vw;
-	left:25vw;
+	left: 25vw;
 	height: 20000%;
 	z-index: 8;
 }
-
-#fr1red{
+#fr1red {
 	background-image: url("../assets/images/fr3red.png");
 	position: fixed;
 	top: 95vh;
-	left:25vw;
+	left: 25vw;
 	width: 50vw;
 	height: 20000%;
 	z-index: 4;
 }
-
-#fr2red{
+#fr2red {
 	background-image: url("../assets/images/fr2red.png");
 	position: fixed;
 	top: 90vh;
 	width: 50vw;
-	left:25vw;
+	left: 25vw;
 	height: 20000%;
 	z-index: 8;
 }
-
-#seco{
+#seco {
 	display: block;
 	position: fixed;
 	z-index: 100;
@@ -116,8 +107,7 @@ h1{
 	margin-left: -139px;
 	z-index: 5;
 }
-
-#seco2{
+#seco2 {
 	display: block;
 	position: fixed;
 	z-index: 100;
@@ -127,8 +117,7 @@ h1{
 	margin-left: -139px;
 	z-index: 5;
 }
-
-#seco3{
+#seco3 {
 	display: block;
 	position: fixed;
 	z-index: 100;
@@ -138,34 +127,21 @@ h1{
 	margin-left: -139px;
 	z-index: 5;
 }
-
-#hexagons{
+#hexagons {
 	position: fixed;
 	z-index: 10;
 	top: 58vh;
 	width: 100vw;
 	text-align: center;
 }
-.hexa{
+.hexa {
 	fill: white;
 	opacity: 0;
 }
-
-.hexa:hover{
+.hexa:hover {
 	cursor: pointer;
 }
-
-#hexas{
-	width:10vw;
+#hexas {
+	width: 10vw;
 	opacity: 1;
 }
-
-
-
-
-
-
-
-
-
-

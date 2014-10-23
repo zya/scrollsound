@@ -42,7 +42,6 @@ window.onload = function() {
 		}, grainInterval);
 	});
 
-
 	loadSound(context, 'assets/audio/ir.mp3', function(e){
 		reverb.buffer = e;
 		console.log("reverb ir loaded");
