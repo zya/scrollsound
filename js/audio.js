@@ -213,7 +213,7 @@ function keyframeHandler(element, name, direction) {
 		var hexa1 = document.getElementById("hexa1");
 		var hexa2 = document.getElementById("hexa2");
 		var hexa3 = document.getElementById("hexa3");
-		if (name === "data-5250pTop" && direction === "down") {
+		if (name === "data-4500pTop" && direction === "down") {
 			loop._interval = oneBar;
 			indic.innerHTML = "<h1>Rhytm Start</h1>";
 			fadeInAndOut(indic, 1, 3000, 1.2);
@@ -221,7 +221,7 @@ function keyframeHandler(element, name, direction) {
 			isFirstPattern = true;
 			isSecondPattern = false;
 			isFinalPattern = false;
-		} else if (name === "data-5250pTop" && direction === "up") {
+		} else if (name === "data-4500pTop" && direction === "up") {
 			loop._interval = oneBar / 2;
 			indic.innerHTML = "<h1>Rhytm Stop</h1>";
 			fadeInAndOut(indic, 1, 1000, 0.9);
