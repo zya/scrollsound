@@ -225,6 +225,7 @@ function keyframeHandler(element, name, direction) {
 			isFirstPattern = true;
 			isSecondPattern = false;
 			isFinalPattern = false;
+			fadeIn(document.getElementById("scrollIcon"), 2);
 		} else if (name === "data-4500pTop" && direction === "up") {
 			loop._interval = oneBar / 2;
 			indic.innerHTML = "<h1>Rhytm Stop</h1>";
@@ -241,6 +242,7 @@ function keyframeHandler(element, name, direction) {
 			isFinalPattern = false;
 			loopIsPlaying = true;
 			fadeInAndOut(indic, 1, 1000, 0.9);
+			fadeOut(document.getElementById("scrollIcon"), 2);
 		} else if (name === "data-6750pTop" && direction === "up") {
 			loop._interval = oneBar;
 			indic.innerHTML = "<h1>Pattern Change Again</h1>";
