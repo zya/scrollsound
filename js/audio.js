@@ -176,7 +176,7 @@ function keyframeHandler(element, name, direction) {
 		if (name === "data-2250pTop" && direction === "down") {
 			lead(now, 523.25 * 2, 0.1, 1);
 			fadeInAndOut(element, 0.5, 1500, 1.2);
-		} else if (name === "data-1800pTop" && direction === "up") {
+		} else if (name === "data-2400pTop" && direction === "up") {
 			lead(now, 523.25 * 2, 0.1, 1);
 			fadeInAndOut(element, 0.5, 1500, 1.2);
 		} else if (name === "data-1875pTop" || name === "data-2700pTop") {
