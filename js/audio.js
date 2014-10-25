@@ -162,6 +162,7 @@ function keyframeHandler(element, name, direction) {
 		if (name === "data-1200pTop" && direction === "down") {
 			lead(now, 329.63 * 4, 0.08, 1);
 			fadeInAndOut(element, 0.5, 1500, 1.2);
+			fadeOut(document.getElementById("scrollIcon"), 2.5);
 		} else if (name === "data-1500pTop" && direction === "up") {
 			lead(now, 329.63 * 4, 0.08, 1);
 			fadeInAndOut(element, 0.5, 1500, 1.2);
