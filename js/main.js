@@ -46,7 +46,7 @@ window.onload = function() {
 			var st = window.getComputedStyle(pannerElement, null);
 			var cv = st.getPropertyValue("-webkit-transform") || st.getPropertyValue("transform") ||
 				st.getPropertyValue("-moz-transform") || st.getPropertyValue("-ms-transform");
-			var panPost = parseInt(cv.split(',')[4], 10) / 150;
+			var panPost = (parseInt(cv.split(',')[4], 10) / 150).toFixed(3);
 			panner.setPosition(panPost, 0, 0);
 			//grain
 			grain(context, buffer, grainGain, 0.3, 0.5, offset);

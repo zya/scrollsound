@@ -6,7 +6,6 @@ var dummyOsc = context.createOscillator();
 var reverb = context.createConvolver();
 var panner = context.createPanner();
 panner.panningModel = "equalpower";
-panner.setPosition(0, 0, 0);
 //gain nodes
 var kickGain = context.createGain();
 var leadGain = context.createGain();
@@ -27,11 +26,11 @@ kickGain.connect(master);
 master.connect(context.destination);
 //gains
 master.gain.value = 1;
-arpGain.gain.value = 0.21;
+arpGain.gain.value = 0.28;
 leadGain.gain.value = 0.10;
-kickGain.gain.value = 0.19;
+kickGain.gain.value = 0.25;
 grainGain.gain.value = 0.6;
-reverbGain.gain.value = 0.9;
+reverbGain.gain.value = 0.7;
 //loop settings
 var oneBar = 2;
 var loop = new Loop(loopFunction, 0, oneBar, context);
