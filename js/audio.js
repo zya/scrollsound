@@ -219,7 +219,7 @@ function keyframeHandler(element, name, direction) {
 		var hexa3 = document.getElementById("hexa3");
 		if (name === "data-4500pTop" && direction === "down") {
 			loop._interval = oneBar;
-			indic.innerHTML = "<h1>Rhytm Start</h1>";
+			indic.innerHTML = "<h1>Rhythm Start</h1>";
 			fadeInAndOut(indic, 1, 3000, 1.2);
 			loopIsPlaying = true;
 			isFirstPattern = true;
@@ -228,7 +228,7 @@ function keyframeHandler(element, name, direction) {
 			fadeIn(document.getElementById("scrollIcon"), 2);
 		} else if (name === "data-4500pTop" && direction === "up") {
 			loop._interval = oneBar / 2;
-			indic.innerHTML = "<h1>Rhytm Stop</h1>";
+			indic.innerHTML = "<h1>Rhythm Stop</h1>";
 			fadeInAndOut(indic, 1, 1000, 0.9);
 			loopIsPlaying = false;
 			isFirstPattern = true;
